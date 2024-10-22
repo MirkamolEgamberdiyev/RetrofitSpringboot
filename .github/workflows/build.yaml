@@ -14,18 +14,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3  # v2 -> v3 ga yangilandi
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Set up JDK 1.8
+      - name: Set up JDK 8
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '1.8'
+          java-version: '8'  # To'g'rilangan versiya
 
       - name: Cache Maven packages
-        uses: actions/cache@v3  # v2 -> v3 ga yangilandi
+        uses: actions/cache@v3
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
