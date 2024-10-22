@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3  # v2 -> v3 ga yangilandi
         with:
           fetch-depth: 0
 
@@ -22,10 +22,10 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '1.8'
 
       - name: Cache Maven packages
-        uses: actions/cache@v2
+        uses: actions/cache@v3  # v2 -> v3 ga yangilandi
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
